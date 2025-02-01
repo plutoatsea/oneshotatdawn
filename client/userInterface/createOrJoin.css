@@ -21,15 +21,7 @@ body {
     align-items: center;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    background: rgba(255, 239, 191, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+
 
 h1 {
     font-size: 3em;
@@ -41,29 +33,14 @@ p {
     margin-bottom: 20px;
 }
 
-.characters {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.character {
-    background: #fdf1d4;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 239, 191, 0.9);
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
-    min-width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.character img {
-    width: 100%;
-    height: auto;
-}
-
-.character h2 {
-    margin: 15px 0;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .btn {
@@ -88,4 +65,9 @@ p {
     background: salmon;
     padding: 15px 30px;
     font-size: 1.5em;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
 }
