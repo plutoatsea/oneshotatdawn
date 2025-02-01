@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <title>Game</title>
+  </head>
+  <body>
+    <div id="root">
+      <input type="text" class="message">
+      <button onclick="sendMessage()">Send Message</button>
+      <h1></h1>
+    </div>
+
+    <script>
+        //add the correct ip later on
+        const socket = io('http://localhost:3001');
+        
+        socket.on('connection');
+        socket.on('message', (data)=>{
+          document.querySelector('h1').innerHTML = data
+        });
+        //function to send message
+        const sendMessage = () => {
+          const messageInput = document.querySelector('.message');
+          const message = messageInput.value;
+          socket.emit('message', message);
+        }
+    </script>
+  </body>
+</html>
