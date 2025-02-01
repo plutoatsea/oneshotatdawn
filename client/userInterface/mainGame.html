@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Shot At Dawn</title>
+    <link rel="stylesheet" href="./mainGame.css">
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .leaderboard {
+            width: 25%;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        .game-area {
+            width: 75%;
+            padding: 10px;
+        }
+
+        .timer {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="game-area">
+            <div class="timer" id="timer">00:00</div>
+        </div>
+    </div>
+    <script>
+        // Timer functionality
+        let timerElement = document.getElementById('timer');
+        let seconds = 0;
+        let minutes = 0;
+
+        function updateTimer() {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+            }
+            timerElement.textContent =
+                (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                (seconds < 10 ? '0' + seconds : seconds);
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+
+</html>
