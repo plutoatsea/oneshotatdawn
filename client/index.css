@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./assets/mainBackground.png') no-repeat center center/cover;
+    font-family: "Miltonian Tattoo", serif;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 245, 220, 0.2);
+    /* Optional: Add slight transparency for readability */
+}
+
+h1 {
+    font-size: 80px;
+    color: black;
+}
+
+
+.subtitle {
+    font-size: 24px;
+    color: darkred;
+    margin-bottom: 40px;
+}
+
+.btn {
+    width: 300px;
+    padding: 20px;
+    font-size: 24px;
+    border: none;
+    border-radius: 30px;
+    background: #ff7f50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin: 10px;
+    font-family: "Miltonian Tattoo", serif;
+}
+
+.btn:hover {
+    background: #ff5722;
+}

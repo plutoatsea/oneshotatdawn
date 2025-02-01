@@ -1,12 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- add here script and stuff -->
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Shot At Dawn</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>One Shot <span class="highlight">At Dawn</span></h1>
+    <p class="subtitle">Unleash your inner cowboy, live out your wild west fantasy ...</p>
+    <button class="btn" onclick="startGame()">Start Game</button>
+    <button class="btn" onclick="aboutGame()">About this game</button>
+  </div>
+  <script>
+    function startGame() {
+      window.location.href = "./userInterface/characterSelection.html";
+    }
+
+    function aboutGame() {
+      window.location.href = "./userInterface/aboutPage.html";
+    }
+  </script>
+</body>
+
 </html>
