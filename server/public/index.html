@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <title>Game</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1 id="partyStatus"></h1>
+      <button onclick="createParty()">Create Party</button>
+      <div>
+        <input type="text" id="partyCodeInput" placeholder="Enter Party Code">
+        <button onclick="joinParty()">Join Party</button>
+      </div>
+      <div id="partyUsers"></div>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+    </div>
+
+    <script>
+        const socket = io('http://localhost:3001');
+
+        //Create a new party
+        const createParty = () => {
+            socket.emit('createParty');
+        };
+
+        //Join a party by entering a code
+        const joinParty = () => {
+            const partyCode = document.getElementById('partyCodeInput').value;
+            socket.emit('joinParty', { partyCode });
+        };
+
+        //Notify when a new party is created
+        socket.on('partyCreated', (data) => {
+            const partyCode = data.code;
+            document.getElementById('partyStatus').innerText = `${partyCode}`;
+            console.log(`Party created with code: ${partyCode}`);
+        });
+
+        //Notify when a user joins a party
+        socket.on('userJoined', (message) => {
+            document.getElementById('partyUsers').innerHTML += `<p>${message}</p>`;
+            console.log(message);
+        });
+
+        //Notify when a user leaves the party
+        socket.on('userLeft', (message) => {
+            document.getElementById('partyUsers').innerHTML += `<p>${message}</p>`;
+            console.log(message);
+        });
+
+        //Show error message if code is invalid
+        socket.on('invalidCode', (message) => {
+            document.getElementById('errorMessage').innerText = message;
+            document.getElementById('errorMessage').style.display = 'block';
+        });
+    </script>
+  </body>
+</html>
