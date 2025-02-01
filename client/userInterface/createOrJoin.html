@@ -12,11 +12,22 @@
     <div class="container">
         <h1>Create Or Join Game</h1>
         <div class="button-container">
-            <button class="btn next-btn">Create A Game</button>
-            <button class="btn next-btn">Join A Game</button>
+            <button class="btn create-btn" onclick="createGame()">Create A Game</button>
+            <button class="btn join-btn" onclick="joinGame()">Join A Game</button>
         </div>
-        <button class="btn next-btn">Next</button>
+        <button class="btn next-btn" onclick="goBack()"> Go Back</button>
     </div>
+    <script>
+        function goBack() {
+            window.location.href = "./characterSelection.html";
+        }
+        function createGame() {
+            window.location.href = "./createGame.html";
+        }
+        function joinGame() {
+            window.location.href = "./joinGame.html";
+        }
+    </script>
 </body>
 
 </html>
