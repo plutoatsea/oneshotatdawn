@@ -8,25 +8,41 @@
   </head>
   <body>
     <div id="root">
+      <h1 id="codeDisplay"></h1>
       <input type="text" class="message">
-      <button onclick="sendMessage()">Send Message</button>
-      <h1></h1>
+      <button onclick="sendMessage()">Submit Code</button>
+      <h1 id="output"></h1>
     </div>
 
     <script>
         //add the correct ip later on
         const socket = io('http://localhost:3001');
-        
+        //everytime a user uses this html, it will connect
         socket.on('connection');
-        socket.on('message', (data)=>{
-          document.querySelector('h1').innerHTML = data
+        //Party code for joining a specific party
+        socket.on('code', (data) => {
+            document.querySelector('#codeDisplay').innerText = `Your party code: ${data.code}`;
         });
-        //function to send message
+
+        socket.on('userJoined', (message) => {
+            console.log(message);
+            document.querySelector('#output').innerHTML = message;
+        });
         const sendMessage = () => {
           const messageInput = document.querySelector('.message');
           const message = messageInput.value;
-          socket.emit('message', message);
+          socket.emit('checkCode', message);
         }
+        // //any change to the message will be displayed differently
+        // socket.on('message', (data)=>{
+        //   document.querySelector('h1').innerHTML = data
+        // });
+        // //function to send message
+        // const sendMessage = () => {
+        //   const messageInput = document.querySelector('.message');
+        //   const message = messageInput.value;
+        //   socket.emit('message', message);
+        // }
     </script>
   </body>
 </html>
