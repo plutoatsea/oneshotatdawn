@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Shot At Dawn</title>
+    <link rel="stylesheet" href="./joinGame.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Join Game</h1>
+        <div class="button-container">
+            <div id="gameCodeContainer">
+                <p>Enter your Game Code</p>
+                <input type="text" id="gameCode">
+            </div>
+        </div>
+
+        <button class="btn next-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            window.location.href = "./mainGame.html";
+        }
+    </script>
+</body>
+
+</html>
